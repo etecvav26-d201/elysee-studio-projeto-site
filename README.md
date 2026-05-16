@@ -38,7 +38,7 @@ projeto-site/
 ├── planejamento/
 ├── referencias/
 ├── imagens/
-└──  logo/
+└── logo/
 ```
 
 ---
