@@ -47,9 +47,9 @@ projeto-site/
 
 Projeto desenvolvido pelos alunos do curso técnico de Informática para Internet — 2°D.
 
-`Alex dos Santos Apolinario`
-`Ana Carolina Bernal Santos`
-`Arthur Alexandre Dias Silva`
+`Alex dos Santos Apolinario`<br>
+`Ana Carolina Bernal Santos`<br>
+`Arthur Alexandre Dias Silva`<br>
 `Helena Bianquini Carriço`
 
 ---
