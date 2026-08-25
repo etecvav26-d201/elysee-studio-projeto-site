@@ -417,3 +417,41 @@ a {
     line-height: 1.12;
     margin-top: 13px;
 }
+
+/* Seção do Agendamento*/
+.booking-banner {
+    align-items: center;
+    color: var(--white);
+    display: flex;
+    min-height: 650px;
+    overflow: hidden;
+    position: relative;
+}
+
+.booking-bg {
+    background:
+        url("https://images.unsplash.com/photo-1512496015851-a90fb38ba796?auto=format&fit=crop&w=2200&q=85")
+        center / cover no-repeat;
+    inset: 0;
+    position: absolute;
+    z-index: -2;
+}
+
+.booking-overlay {
+    background: rgba(28, 24, 20, .48);
+    inset: 0;
+    position: absolute;
+    z-index: -1;
+}
+
+.booking-content {
+    text-align: center;
+}
+
+.booking-content .display-title {
+    margin-bottom: 40px;
+}
+
+.booking-content .btn {
+    margin-inline: auto;
+}
