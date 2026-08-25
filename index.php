@@ -21,7 +21,7 @@
     ?>
 
     <main>
-        
+
     <section class="hero" id="inicio">
         <div class="hero-media" role="img" aria-label="Ambiente sofisticado do Elysee Studio"></div>
         <div class="hero-overlay"></div>
@@ -39,7 +39,32 @@
                 </a>
             </div>
         </div>
-    </section> 
+    </section>
+
+    <section class="intro section" id="ritual">
+        <div class="container intro-grid">
+            <div class="section-label reveal">
+                <span>01</span>
+                <span>Manifesto</span>
+            </div>
+
+            <div class="intro-copy">
+
+                <h2 class="display-title reveal">
+                    Menos pressa.<br>
+                    <em>Mais presença.</em>
+                </h2>
+                <p class="body-large reveal">
+                    No Elysee Studio, cada atendimento é criado para ser mais do que um
+                    serviço. É uma pausa no dia, um cuidado intencional e um resultado que
+                    continua depois que você sai pela porta.
+                </p>
+                <a class="text-link reveal" href="contato.php">
+                    Conheça o Elysee <span>↗</span>
+                </a>
+            </div>
+        </div>
+    </section>
 
     </main>
 
