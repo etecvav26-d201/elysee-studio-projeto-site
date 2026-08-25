@@ -66,6 +66,22 @@
         </div>
     </section>
 
+    <section class="editorial">
+        <div class="editorial-image editorial-image-one"></div>
+        <div class="editorial-content">
+
+            <h2 class="display-title reveal">O luxo da<br><em>elegância.</em></h2>
+            <p class="body-copy reveal">
+                Texturas naturais, aromas suaves, luz baixa e um atendimento sem excessos.
+                Tudo foi pensado para que o cuidado comece antes mesmo do seu ritual.
+            </p>
+            <a href="contato.php" class="btn btn-dark reveal">
+                <span>Conhecer o espaço</span>
+                <span class="btn-arrow">↗</span>
+            </a>
+        </div>
+    </section>
+
     </main>
 
 
