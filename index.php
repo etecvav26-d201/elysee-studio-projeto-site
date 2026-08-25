@@ -20,6 +20,29 @@
     }
     ?>
 
+    <main>
+        
+    <section class="hero" id="inicio">
+        <div class="hero-media" role="img" aria-label="Ambiente sofisticado do Elysee Studio"></div>
+        <div class="hero-overlay"></div>
+
+        <div class="container hero-content">
+            <h1 class="hero-title reveal">
+                <span>Brilho atemporal.</span>
+                <em>Seu momento.</em>
+            </h1>
+            <br><br>
+            <div class="hero-actions reveal">
+                <a class="btn btn-light" href="agendar.php">
+                    <span>Agendar experiência</span>
+                    <span class="btn-arrow">↗</span>
+                </a>
+            </div>
+        </div>
+    </section> 
+
+    </main>
+
 
 
     <?php
