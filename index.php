@@ -149,8 +149,6 @@
 
     </main>
 
-
-
     <?php
     $footerFile = __DIR__ . '/includes/footer.php';
     if (is_file($footerFile)) {
