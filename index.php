@@ -94,6 +94,59 @@
         </div>
     </section>
 
+    <section class="journal section">
+        <div class="container">
+            <div class="section-heading journal-heading">
+                <div class="section-label reveal">
+                    <span>03</span>
+                    <span>Journal</span>
+                </div>
+                <div>
+                    <h2 class="display-title reveal">Portifólio de <em>Satisfação</em></h2>
+                </div>
+            </div>
+
+            <div class="journal-grid">
+                <a href="contato.php" class="journal-card reveal">
+                    <div class="journal-image journal-image-one"></div>
+                    <div class="journal-info">
+                        <span>Seção 1</span>
+                        <h3>Como transformar sua rotina em um ritual</h3>
+                    </div>
+                </a>
+
+                <a href="contato.php" class="journal-card reveal">
+                    <div class="journal-image journal-image-two"></div>
+                    <div class="journal-info">
+                        <span>Seção 2</span>
+                        <h3>O luxo silencioso de cuidar de si</h3>
+                    </div>
+                </a>
+
+                <a href="contato.php" class="journal-card reveal">
+                    <div class="journal-image journal-image-three"></div>
+                    <div class="journal-info">
+                        <span>Seção 3</span>
+                        <h3>Por dentro do universo Elysee</h3>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <section class="booking-banner">
+        <div class="booking-bg"></div>
+        <div class="booking-overlay"></div>
+        <div class="container booking-content">
+
+            <h2 class="display-title reveal">Reserve um tempo<br><em>para você.</em></h2>
+            <a href="agendar.php" class="btn btn-light reveal">
+                <span>Agendar agora</span>
+                <span class="btn-arrow">↗</span>
+            </a>
+        </div>
+    </section>
+
     </main>
 
 
