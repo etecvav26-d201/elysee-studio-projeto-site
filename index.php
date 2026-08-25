@@ -82,6 +82,18 @@
         </div>
     </section>
 
+    <section class="quote section">
+        <div class="container quote-inner">
+            <span class="quote-mark">“</span>
+            <blockquote class="reveal">
+                Beleza não precisa chamar atenção.<br>
+                <em>Ela pode simplesmente fazer você se sentir bem.</em>
+            </blockquote>
+            <div class="quote-line"></div>
+            <p class="eyebrow">Elysee Studio</p>
+        </div>
+    </section>
+
     </main>
 
 
