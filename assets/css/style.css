@@ -272,4 +272,148 @@ a {
     margin-bottom: 34px;
 }
 
+/* Segunda Seção*/
 
+.editorial {
+    background: var(--ivory);
+    display: grid;
+    grid-template-columns: 55% 45%;
+    min-height: 720px;
+}
+
+.editorial-image {
+    min-height: 650px;
+}
+
+.editorial-image-one {
+    background:
+        url("https://images.unsplash.com/photo-1516975080664-ed2fc6a32937?auto=format&fit=crop&w=1600&q=85")
+        center / cover no-repeat;
+}
+
+.editorial-content {
+    align-self: center;
+    padding: 80px 10vw 80px 8vw;
+}
+
+.editorial-content .display-title {
+    margin-bottom: 35px;
+}
+
+.editorial-content .body-copy {
+    margin-bottom: 40px;
+}
+
+
+/* Terceira Seção*/
+
+.quote {
+    background: var(--paper);
+    text-align: center;
+}
+
+.quote-inner {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.quote-mark {
+    font-family: var(--serif);
+    font-size: 70px;
+    line-height: .5;
+    margin-bottom: 25px;
+}
+
+.quote blockquote {
+    font-family: var(--serif);
+    font-size: clamp(38px, 5vw, 70px);
+    font-weight: 400;
+    letter-spacing: -.045em;
+    line-height: 1.08;
+}
+
+.quote blockquote em {
+    font-style: italic;
+}
+
+.quote-line {
+    background: var(--line);
+    height: 1px;
+    margin: 45px 0 22px;
+    width: 50px;
+}
+
+
+/* Quarta Seção */
+
+.journal {
+    background: var(--ivory);
+}
+
+.journal-heading {
+    align-items: end;
+    display: grid;
+    gap: 40px;
+    grid-template-columns: 25% 1fr;
+    margin-bottom: 65px;
+}
+
+.journal-grid {
+    display: grid;
+    gap: 26px;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.journal-card {
+    display: block;
+}
+
+.journal-image {
+    aspect-ratio: 1 / 1.18;
+    filter: saturate(.8);
+    margin-bottom: 22px;
+    overflow: hidden;
+    transition:
+        transform .7s var(--ease),
+        filter .7s var(--ease);
+}
+
+.journal-card:hover .journal-image {
+    filter: saturate(1);
+    transform: scale(.985);
+}
+
+.journal-image-one {
+    background:
+        url("https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+}
+
+.journal-image-two {
+    background:
+        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+}
+
+.journal-image-three {
+    background:
+        url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=85")
+        center / cover;
+}
+
+.journal-info > span {
+    color: var(--muted);
+    font-size: 9px;
+    letter-spacing: .17em;
+    text-transform: uppercase;
+}
+
+.journal-info h3 {
+    font-family: var(--serif);
+    font-size: 27px;
+    font-weight: 400;
+    letter-spacing: -.025em;
+    line-height: 1.12;
+    margin-top: 13px;
+}
