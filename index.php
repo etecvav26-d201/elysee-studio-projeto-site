@@ -13,7 +13,9 @@
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/footer.css">
 </head>
+    <script src="assets/js/navbar.js" defer></script>
 <body>
+    
 
     <?php
     $navbarFile = __DIR__ . '/includes/navbar.php';
