@@ -53,3 +53,7 @@ CREATE TABLE agendamentos (
     CONSTRAINT fk_agendamento_funcionario FOREIGN KEY (funcionario_id)
         REFERENCES funcionarios (id) ON UPDATE CASCADE ON DELETE SET NULL
 ) ENGINE=InnoDB;
+
+-- Exemplo de criação de funcionário após gerar o hash:
+-- INSERT INTO funcionarios (nome, email, senha, cargo)
+-- VALUES ('Administrador', 'admin@elyseestudio.com.br', 'HASH_GERADO_PELO_PHP', 'Administrador');
