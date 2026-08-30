@@ -1,0 +1,502 @@
+:root {
+    --ivory: #f5f0e8;
+    --paper: #fbf9f5;
+    --white: #fffdf9;
+    --ink: #24211f;
+    --muted: #756d65;
+    --line: rgba(36, 33, 31, .14);
+
+    --green: #60745e;
+    --orange: #a47745;
+    --red: #9a5d58;
+
+    --serif: "Playfair Display", Georgia, serif;
+    --sans: "DM Sans", Arial, sans-serif;
+
+    --container: 1280px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+
+html {
+    scroll-behavior: smooth;
+}
+
+
+body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: var(--sans);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+button,
+input {
+    font: inherit;
+}
+
+.dashboard {
+    margin: auto;
+    padding: 80px 32px;
+    width: min(100%, var(--container));
+}
+
+.dashboard-intro {
+    align-items: flex-end;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 50px;
+}
+
+
+.eyebrow {
+    color: var(--muted);
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .18em;
+    text-transform: uppercase;
+}
+
+
+.dashboard-intro h1 {
+    font-family: var(--serif);
+    font-size: clamp(52px, 6vw, 76px);
+    font-weight: 400;
+    letter-spacing: -.05em;
+    line-height: .95;
+    margin: 8px 0 15px;
+}
+
+
+.dashboard-intro p {
+    color: var(--muted);
+}
+
+.date-form {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+}
+
+
+.date-form label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+}
+
+
+.date-control {
+    background: var(--white);
+    border: 1px solid var(--line);
+}
+
+
+.date-control input {
+    background: transparent;
+    border: 0;
+    color: var(--ink);
+    cursor: pointer;
+    outline: 0;
+    padding: 13px 15px;
+}
+
+.database-alert {
+    background: rgba(154, 93, 88, .08);
+    border: 1px solid rgba(154, 93, 88, .2);
+    color: var(--red);
+    margin-bottom: 25px;
+    padding: 15px 18px;
+}
+
+.stats {
+    display: grid;
+    gap: 12px;
+    grid-template-columns: 1.5fr repeat(4, 1fr);
+    margin-bottom: 90px;
+}
+
+
+.stat-card {
+    background: var(--white);
+    border: 1px solid var(--line);
+    min-height: 145px;
+    padding: 23px;
+}
+
+
+.stat-card span {
+    color: var(--muted);
+    display: block;
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+
+.stat-card strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: -.04em;
+    line-height: 1;
+    margin-top: 20px;
+}
+
+
+.stat-card small {
+    color: var(--muted);
+    display: block;
+    font-size: 10px;
+    margin-top: 7px;
+}
+
+
+.stat-main {
+    background: var(--ink);
+    color: var(--white);
+}
+
+
+.stat-main span,
+.stat-main small {
+    color: rgba(255, 255, 255, .55);
+}
+
+.section-heading {
+    align-items: flex-end;
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 18px;
+    padding-bottom: 22px;
+}
+
+
+.section-heading h2 {
+    font-family: var(--serif);
+    font-size: 42px;
+    font-weight: 400;
+    letter-spacing: -.04em;
+    line-height: 1;
+    margin-top: 7px;
+}
+
+
+.appointment-count {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+.appointment-list {
+    display: flex;
+    flex-direction: column;
+}
+
+
+.appointment-card {
+    align-items: center;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    gap: 30px;
+    grid-template-columns: 110px 1.4fr 1.2fr 170px;
+    min-height: 145px;
+    padding: 25px 10px;
+    transition: background .25s ease;
+}
+
+
+.appointment-card:hover {
+    background: rgba(245, 240, 232, .65);
+}
+
+.appointment-time strong {
+    display: block;
+    font-family: var(--serif);
+    font-size: 32px;
+    font-weight: 400;
+    letter-spacing: -.04em;
+}
+
+
+.appointment-time span {
+    color: var(--muted);
+    font-size: 9px;
+}
+
+.appointment-label {
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 600;
+    letter-spacing: .16em;
+    text-transform: uppercase;
+}
+
+
+.appointment-client h3 {
+    font-family: var(--serif);
+    font-size: 25px;
+    font-weight: 400;
+    letter-spacing: -.025em;
+    line-height: 1.1;
+    margin: 7px 0 9px;
+}
+
+
+.client-contact {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px 18px;
+}
+
+
+.client-contact a {
+    color: var(--muted);
+    font-size: 10px;
+}
+
+
+.client-contact a:hover {
+    color: var(--ink);
+}
+
+
+.appointment-service strong {
+    display: block;
+    font-size: 13px;
+    font-weight: 500;
+    margin-top: 7px;
+}
+
+
+.responsible {
+    color: var(--muted);
+    display: block;
+    font-size: 10px;
+    margin-top: 5px;
+}
+
+.appointment-status {
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+}
+
+
+.status {
+    border: 1px solid;
+    font-size: 8px;
+    font-weight: 600;
+    letter-spacing: .12em;
+    padding: 6px 9px;
+    text-transform: uppercase;
+}
+
+
+.status-pendente {
+    background: rgba(164, 119, 69, .09);
+    border-color: rgba(164, 119, 69, .25);
+    color: var(--orange);
+}
+
+
+.status-confirmado {
+    background: rgba(96, 116, 94, .09);
+    border-color: rgba(96, 116, 94, .25);
+    color: var(--green);
+}
+
+
+.status-concluido {
+    background: rgba(36, 33, 31, .07);
+    border-color: rgba(36, 33, 31, .16);
+    color: var(--ink);
+}
+
+
+.status-cancelado {
+    background: rgba(154, 93, 88, .08);
+    border-color: rgba(154, 93, 88, .22);
+    color: var(--red);
+}
+
+
+.notes-toggle {
+    background: transparent;
+    border: 0;
+    border-bottom: 1px solid var(--line);
+    color: var(--muted);
+    cursor: pointer;
+    font-size: 9px;
+    padding-bottom: 3px;
+}
+
+
+.notes-toggle:hover {
+    color: var(--ink);
+}
+
+.empty-state {
+    align-items: center;
+    border: 1px solid var(--line);
+    display: flex;
+    flex-direction: column;
+    padding: 90px 25px;
+    text-align: center;
+}
+
+
+.empty-icon {
+    color: var(--muted);
+    font-size: 35px;
+    margin-bottom: 15px;
+}
+
+
+.empty-state h3 {
+    font-family: var(--serif);
+    font-size: 30px;
+    font-weight: 400;
+}
+
+
+.empty-state p {
+    color: var(--muted);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+
+@media (max-width: 1000px) {
+
+    .stats {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+
+    .stat-main {
+        grid-column: 1 / -1;
+    }
+
+
+    .appointment-card {
+        grid-template-columns: 90px 1.4fr 1fr;
+    }
+
+
+    .appointment-status {
+        align-items: flex-start;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .dashboard-header-inner {
+        grid-template-columns: 1fr auto;
+        padding: 0 20px;
+    }
+
+
+    .dashboard-title {
+        display: none;
+    }
+
+
+    .dashboard {
+        padding: 55px 20px;
+    }
+
+
+    .dashboard-intro {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 30px;
+    }
+
+
+    .date-form {
+        align-items: flex-start;
+    }
+
+
+    .stats {
+        grid-template-columns: 1fr 1fr;
+        margin-bottom: 65px;
+    }
+
+
+    .stat-main {
+        grid-column: 1 / -1;
+    }
+
+
+    .appointment-card {
+        align-items: flex-start;
+        gap: 22px;
+        grid-template-columns: 1fr 1fr;
+        padding: 25px 5px;
+    }
+
+
+    .appointment-time {
+        grid-column: 1 / -1;
+    }
+
+
+    .appointment-status {
+        align-items: flex-start;
+    }
+
+
+    .section-heading h2 {
+        font-size: 34px;
+    }
+
+
+    .dashboard-footer {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 8px;
+        padding: 22px 20px;
+    }
+
+}
+
+@media (max-width: 430px) {
+
+    .appointment-card {
+        grid-template-columns: 1fr;
+    }
+
+
+    .appointment-time {
+        grid-column: auto;
+    }
+
+
+    .appointment-status {
+        align-items: flex-start;
+    }
+
+}
