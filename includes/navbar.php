@@ -17,7 +17,7 @@
         </nav>
 
         <a class="navbar-logo" href="index.php" aria-label="Elysee Studio — início">
-            <img src="../assets/img/img8.png" alt="Elysee Studio">
+            <img src="./assets/img/img8.png" alt="Elysee Studio">
         </a>
 
         <div class="navbar-right">
