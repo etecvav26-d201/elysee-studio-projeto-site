@@ -252,7 +252,7 @@ a {
 /* Primeira Seção*/
 
 .intro {
-    background: var(--paper);
+    background: var(--white);
 }
 
 .intro-grid {
