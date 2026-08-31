@@ -1,12 +1,19 @@
 <?php
 
+// Obriga o PHP a verificar os tipos declarados de forma rigorosa.
 declare(strict_types=1);
 
+// Importa o arquivo da conexão com o banco.
 require_once __DIR__ . '/includes/conexao.php';
 
+// Armazena a mensagem que será apresentada ao usuário
 $mensagem = '';
+
+// Define o tipo da mensagem:
+// 'erro' ou 'sucesso'.
 $tipoMensagem = '';
 
+// Guarda os dados preenchidos pelo usuário.
 $dados = [
     'nome' => '',
     'telefone' => '',
@@ -17,8 +24,10 @@ $dados = [
     'observacoes' => '',
 ];
 
+// Verifica se o formulário foi enviado utilizando POST.
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
+    // Recupera os valores enviados pelo formulário.
     $dados['nome'] = trim((string) ($_POST['nome'] ?? ''));
     $dados['telefone'] = trim((string) ($_POST['telefone'] ?? ''));
     $dados['email'] = trim((string) ($_POST['email'] ?? ''));
@@ -27,6 +36,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $dados['atendimento'] = trim((string) ($_POST['atendimento'] ?? ''));
     $dados['observacoes'] = trim((string) ($_POST['observacoes'] ?? ''));
 
+    // Verifica se algum dos campos obrigatórios está vazio.
     if (
         $dados['nome'] === '' ||
         $dados['telefone'] === '' ||
@@ -36,9 +46,12 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $dados['atendimento'] === ''
     ) {
 
+        // Define a mensagem que será apresentada ao usuário.
         $mensagem = 'Preencha todos os campos obrigatórios.';
+        // Define que a mensagem é um erro.
         $tipoMensagem = 'erro';
 
+    // Verifica se o valor informado possui formato de e-mail válido.
     } elseif (!filter_var($dados['email'], FILTER_VALIDATE_EMAIL)) {
 
         $mensagem = 'Digite um e-mail válido.';
@@ -46,11 +59,13 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
     } else {
 
+        // Tenta transformar a data enviada pelo formulário em um objeto DateTime
         $data = DateTime::createFromFormat(
             'Y-m-d',
             $dados['data']
         );
 
+        // Verifica se a data realmente é válida e se está no formato esperado.
         if (
             !$data ||
             $data->format('Y-m-d') !== $dados['data']
@@ -59,6 +74,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $mensagem = 'A data selecionada é inválida.';
             $tipoMensagem = 'erro';
 
+        // Impede que o usuário faça um agendamento para uma data anterior ao dia atual.
         } elseif ($dados['data'] < date('Y-m-d')) {
 
             $mensagem = 'Não é possível agendar para uma data anterior a hoje.';
@@ -66,8 +82,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
         } else {
 
+            // try permite capturar possíveis erros gerados durante as operações com o banco.
             try {
 
+                // Consulta se já existe um agendamento para a mesma data e horário.
                 $stmt = $pdo->prepare(
                     'SELECT id
                      FROM agendamentos
@@ -77,14 +95,16 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                      LIMIT 1'
                 );
 
+                // Envia os valores para os parâmetros da consulta.
                 $stmt->execute([
                     ':data' => $dados['data'],
                     ':hora' => $dados['hora'],
                 ]);
 
+                // Tenta encontrar um registro.
                 $horarioOcupado = $stmt->fetch();
 
-
+                // Se encontrou um agendamento, o horário está ocupado.
                 if ($horarioOcupado) {
 
                     $mensagem = 'Esse horário já está reservado. Escolha outro horário.';
@@ -92,6 +112,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                 } else {
 
+                    // Procura um cliente utilizando o e-mail.
                     $stmt = $pdo->prepare(
                         'SELECT id
                          FROM clientes
@@ -107,8 +128,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     if ($cliente) {
 
+                        // O cliente já existe.
                         $clienteId = (int) $cliente['id'];
 
+                        // Atualiza nome e telefone do cliente.
                         $stmt = $pdo->prepare(
                             'UPDATE clientes
                              SET nome = :nome,
@@ -124,6 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
                     } else {
 
+                        // O cliente ainda não existe, logo criando na tabela
                         $stmt = $pdo->prepare(
                             'INSERT INTO clientes
                             (
@@ -148,6 +172,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         $clienteId = (int) $pdo->lastInsertId();
                     }
 
+                    // Insere o novo agendamento no banco.
                     $stmt = $pdo->prepare(
                         'INSERT INTO agendamentos
                         (
@@ -169,6 +194,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                         )'
                     );
 
+                    // Envia os dados para a consulta preparada.
                     $stmt->execute([
                         ':cliente_id' => $clienteId,
                         ':data' => $dados['data'],
@@ -194,6 +220,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 
             } catch (Throwable $e) {
 
+                // Registra o erro técnico no log do servidor.
                 error_log(
                     'Elysee Studio — erro no agendamento: ' .
                     $e->getMessage()
@@ -206,6 +233,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 }
 
+// htmlspecialchars transforma caracteres especiais em entidades HTML, isso evita que dados enviados pelo usuário sejam
+// interpretados como HTML ou JavaScript.
 function e(string $value): string
 {
     return htmlspecialchars(

@@ -1,15 +1,21 @@
 <?php
 
+// Obriga o PHP a respeitar os tipos declarados.
 declare(strict_types=1);
 
+// Importa a conexão com o banco de dados.
 require_once __DIR__ . '/../includes/conexao.php';
 
+// Obtém a data atual no formato utilizado pelo MySQL
 $hoje = date('Y-m-d');
 
+// Verifica se uma data foi enviada pela URL.
 $dataSelecionada = $_GET['data'] ?? $hoje;
 
+// Tenta validar a data recebida.
 $dateObject = DateTime::createFromFormat('Y-m-d', $dataSelecionada);
 
+// Se a data for inválida, volta a utilizar a data atual.
 if (
     !$dateObject ||
     $dateObject->format('Y-m-d') !== $dataSelecionada
@@ -17,9 +23,13 @@ if (
     $dataSelecionada = $hoje;
 }
 
+// Array que armazenará todos os agendamentos encontrados.
 $agendamentos = [];
+
+// Indica se ocorreu algum problema ao consultar o banco.
 $erroBanco = false;
 
+// Indica se ocorreu algum problema ao consultar o banco.
 $total = 0;
 $pendentes = 0;
 $confirmados = 0;
@@ -28,6 +38,7 @@ $cancelados = 0;
 
 try {
 
+    // Prepara uma consulta que combina informações de diferentes tabelas do banco.
     $stmt = $pdo->prepare(
         'SELECT
             a.id,
@@ -58,30 +69,39 @@ try {
             a.id ASC'
     );
 
+    // Executa a consulta substituindo :data pela data selecionada no painel.
     $stmt->execute([
         ':data' => $dataSelecionada
     ]);
 
+    // Recupera todos os registros encontrados.
     $agendamentos = $stmt->fetchAll();
 
+    // Conta quantos agendamentos foram encontrados.
     $total = count($agendamentos);
 
+    // Percorre todos os agendamentos encontrados.
     foreach ($agendamentos as $agendamento) {
 
+        // Verifica o status de cada agendamento.
         switch ($agendamento['status']) {
 
+            // Soma um aos agendamentos pendentes.
             case 'pendente':
                 $pendentes++;
                 break;
 
+            // Soma um aos agendamentos confirmados.
             case 'confirmado':
                 $confirmados++;
                 break;
 
+            // Soma um aos agendamentos concluídos.
             case 'concluido':
                 $concluidos++;
                 break;
 
+            // Soma um aos agendamentos cancelados.
             case 'cancelado':
                 $cancelados++;
                 break;
@@ -89,15 +109,18 @@ try {
     }
 
 } catch (Throwable $e) {
-
+            
+    // Registra o erro técnico no log.
     error_log(
         'Elysee Studio — erro no painel: ' .
         $e->getMessage()
     );
 
+    // Informa ao restante da página que ocorreu um erro.
     $erroBanco = true;
 }
 
+// Protege valores antes de serem exibidos no HTML.
 function e(string $value): string
 {
     return htmlspecialchars(
@@ -107,6 +130,7 @@ function e(string $value): string
     );
 }
 
+// Converte uma data do formato do banco para o formato brasileiro
 function formatarData(string $data): string
 {
     $date = DateTime::createFromFormat(
@@ -119,6 +143,7 @@ function formatarData(string $data): string
         : $data;
 }
 
+// Converte o status armazenado no banco para um texto amigável para o usuário.
 function statusLabel(string $status): string
 {
     return match ($status) {
@@ -135,6 +160,7 @@ function statusLabel(string $status): string
     };
 }
 
+// Define a classe CSS correspondente ao status.
 function statusClass(string $status): string
 {
     return match ($status) {

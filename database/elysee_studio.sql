@@ -1,9 +1,12 @@
+-- cria o banco de dados caso não exista outro com o mesmo nome
 CREATE DATABASE IF NOT EXISTS elysee_studio
     CHARACTER SET utf8mb4
     COLLATE utf8mb4_unicode_ci;
 
+-- utiliza o banco de dados
 USE elysee_studio;
 
+-- cria a tabela dos funcionarios, ainda não utilizada
 CREATE TABLE funcionarios (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,
@@ -19,6 +22,7 @@ CREATE TABLE funcionarios (
     KEY idx_funcionarios_ativo (ativo)
 ) ENGINE=InnoDB;
 
+-- cria a tabela de clientes
 CREATE TABLE clientes (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     nome VARCHAR(120) NOT NULL,
@@ -32,6 +36,7 @@ CREATE TABLE clientes (
     KEY idx_clientes_email (email)
 ) ENGINE=InnoDB;
 
+-- cria a tabela dos agendamentos
 CREATE TABLE agendamentos (
     id INT UNSIGNED NOT NULL AUTO_INCREMENT,
     cliente_id INT UNSIGNED NOT NULL,

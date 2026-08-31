@@ -16,7 +16,7 @@
     <script src="assets/js/navbar.js" defer></script>
 <body>
     
-
+    // Obtem o caminho até a navbar em outra pasta para colocar ela no index
     <?php
     $navbarFile = __DIR__ . '/includes/navbar.php';
     if (is_file($navbarFile)) {
@@ -153,6 +153,7 @@
 
     </main>
 
+    // Obtem o caminho até o footer em outra pasta para colocar ela no index
     <?php
     $footerFile = __DIR__ . '/includes/footer.php';
     if (is_file($footerFile)) {
