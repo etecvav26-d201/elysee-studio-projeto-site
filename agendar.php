@@ -547,8 +547,6 @@ function e(string $value): string
 
     </main>
 
-
-
     <?php
         $footerFile = __DIR__ . '/includes/footer.php';
 

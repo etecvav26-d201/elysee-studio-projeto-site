@@ -11,18 +11,21 @@
         </button>
 
         <nav class="navbar-menu navbar-menu-left" aria-label="Navegação principal">
-            <a href="index.php">Início</a>
-            <a href="index.php#conheca">O Studio</a>
-            <a href="index.php#portifolio">Portfólio</a>
+            <a href="/elysee/index.php">Início</a>
+            <a href="/elysee/index.php#conheca">O Studio</a>
+            <a href="/elysee/index.php#portifolio">Portfólio</a>
         </nav>
 
-        <a class="navbar-logo" href="index.php" aria-label="Elysee Studio — início">
-            <img src="./assets/img/img8.png" alt="Elysee Studio">
+        <a class="navbar-logo" href="/elysee/index.php" aria-label="Elysee Studio — início">
+            <img src="/elysee/assets/img/img8.png" alt="Elysee Studio">
         </a>
 
         <div class="navbar-right">
             <nav class="navbar-menu navbar-menu-right" aria-label="Navegação secundária">
-                <a href="contato.php">Entrar/Cadastro</a>
+                <a href="login.php">Entrar</a>
+            </nav>
+            <nav class="navbar-menu navbar-menu-right" aria-label="Navegação secundária">
+                <a href="cadastro.php">Cadastro</a>
             </nav>
 
             <a class="navbar-book" href="agendar.php">
@@ -34,10 +37,10 @@
 
     <div class="mobile-menu" id="mobile-menu">
         <nav aria-label="Menu mobile">
-            <a href="index.php">Início</a>
-            <a href="index.php#ritual">O Studio</a>
-            <a href="index.php#portfolio">Portfólio</a>
-            <a href="contato.php">Contato</a>
+            <a href="/elysee/index.php">Início</a>
+            <a href="/elysee/index.php#ritual">O Studio</a>
+            <a href="/elysee/index.php#portfolio">Portfólio</a>
+            <a href="/elysee/contato.php">Contato</a>
             <a class="mobile-book" href="agendar.php">
                 Agendar experiência <span>↗</span>
             </a>

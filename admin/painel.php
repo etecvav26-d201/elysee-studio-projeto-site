@@ -3,6 +3,16 @@
 // Obriga o PHP a respeitar os tipos declarados.
 declare(strict_types=1);
 
+session_start();
+
+if (
+    !isset($_SESSION['usuario_tipo']) ||
+    $_SESSION['usuario_tipo'] !== 'funcionario'
+) {
+    header('Location: ../login.php');
+    exit;
+}
+
 // Importa a conexão com o banco de dados.
 require_once __DIR__ . '/../includes/conexao.php';
 
