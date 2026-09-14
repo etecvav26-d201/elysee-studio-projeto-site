@@ -6,8 +6,8 @@
 
             <nav class="footer-links" aria-label="Navegação do rodapé">
                 <a href="index.php">Início</a>
-                <a href="index.php#ritual">O Studio</a>
-                <a href="index.php#portfolio">Portfólio</a>
+                <a href="index.php#conheca">O Studio</a>
+                <a href="index.php#portifolio">Portfólio</a>
                 <a href="agendar.php">Agendamento</a>
                 <a href="contato.php">Contato</a>
             </nav>

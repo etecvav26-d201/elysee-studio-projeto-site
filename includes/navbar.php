@@ -12,8 +12,8 @@
 
         <nav class="navbar-menu navbar-menu-left" aria-label="Navegação principal">
             <a href="index.php">Início</a>
-            <a href="index.php#ritual">O Studio</a>
-            <a href="index.php#portfolio">Portfólio</a>
+            <a href="index.php#conheca">O Studio</a>
+            <a href="index.php#portifolio">Portfólio</a>
         </nav>
 
         <a class="navbar-logo" href="index.php" aria-label="Elysee Studio — início">
@@ -22,7 +22,7 @@
 
         <div class="navbar-right">
             <nav class="navbar-menu navbar-menu-right" aria-label="Navegação secundária">
-                <a href="contato.php">Contato</a>
+                <a href="contato.php">Entrar/Cadastro</a>
             </nav>
 
             <a class="navbar-book" href="agendar.php">

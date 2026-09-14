@@ -95,33 +95,6 @@ a {
     max-width: 430px;
 }
 
-.section-label {
-    align-items: center;
-    color: var(--muted);
-    display: flex;
-    font-size: 9px;
-    font-weight: 600;
-    gap: 18px;
-    letter-spacing: .2em;
-    text-transform: uppercase;
-}
-
-.section-label span:first-child {
-    color: var(--ink);
-}
-
-.section-label span:last-child {
-    align-items: center;
-    display: flex;
-    gap: 18px;
-}
-
-.section-label span:last-child::before {
-    background: var(--line);
-    content: "";
-    height: 1px;
-    width: 34px;
-}
 
 .text-link {
     align-items: center;
@@ -256,13 +229,14 @@ a {
 }
 
 .intro-grid {
-    display: grid;
-    grid-template-columns: 25% 1fr;
+    display: flex;
+    justify-content: center;
 }
 
 .intro-copy {
     padding-left: 7vw;
 }
+
 
 .intro-copy .display-title {
     margin-bottom: 38px;
@@ -349,14 +323,18 @@ a {
 
 .journal {
     background: var(--ivory);
+    padding: 80px 0;
 }
 
 .journal-heading {
-    align-items: end;
-    display: grid;
-    gap: 40px;
-    grid-template-columns: 25% 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     margin-bottom: 65px;
+}
+
+.journal-heading .display-title {
+    text-align: center;
 }
 
 .journal-grid {
@@ -386,19 +364,19 @@ a {
 
 .journal-image-one {
     background:
-        url("https://images.unsplash.com/photo-1604654894610-df63bc536371?auto=format&fit=crop&w=1000&q=85")
+        url("../img/imagem9.png")
         center / cover;
 }
 
 .journal-image-two {
     background:
-        url("https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?auto=format&fit=crop&w=1000&q=85")
+        url("../img/imagem10.png")
         center / cover;
 }
 
 .journal-image-three {
     background:
-        url("https://images.unsplash.com/photo-1487412912498-0447578fcca8?auto=format&fit=crop&w=1000&q=85")
+        url("../img/imagem11.png")
         center / cover;
 }
 
@@ -416,6 +394,7 @@ a {
     letter-spacing: -.025em;
     line-height: 1.12;
     margin-top: 13px;
+    margin-left: 13px;
 }
 
 /* Seção do Agendamento*/

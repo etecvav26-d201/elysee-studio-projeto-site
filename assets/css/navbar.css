@@ -3,7 +3,7 @@
     background: var(--white);
     color: var(--ink);
     left: 0;
-    position: relative;
+    position: fixed;
     top: 0;
     width: 100%;
     z-index: 1000;
