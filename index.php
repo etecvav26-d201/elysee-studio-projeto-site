@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="stylesheet" href="assets/css/navbar.css">
     <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
 </head>
     <script src="assets/js/navbar.js" defer></script>
 <body>

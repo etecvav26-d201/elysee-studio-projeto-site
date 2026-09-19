@@ -64,69 +64,180 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cadastro | Elysee Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
 </head>
 
 <body>
 
-    <main>
+    <body class="auth-page">
 
-        <h1>Criar conta</h1>
+        <?php
+        $navbarFile = __DIR__ . '/includes/navbar.php';
 
-        <?php if ($erro !== ''): ?>
-            <p><?= htmlspecialchars($erro) ?></p>
-        <?php endif; ?>
+        if (is_file($navbarFile)) {
+            require $navbarFile;
+        }
+        ?>
 
-        <?php if ($sucesso !== ''): ?>
-            <p><?= htmlspecialchars($sucesso) ?></p>
-        <?php endif; ?>
+        <main class="auth-main">
 
-        <form method="POST">
+            <div class="auth-container">
 
-            <label for="nome">Nome</label>
-            <input
-                type="text"
-                id="nome"
-                name="nome"
-                required
-            >
+                <header class="auth-header">
 
-            <label for="email">E-mail</label>
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-            >
+                    <p class="eyebrow">
+                        Elysee Studio
+                    </p>
 
-            <label for="telefone">Telefone</label>
-            <input
-                type="tel"
-                id="telefone"
-                name="telefone"
-                required
-            >
+                    <h1 class="auth-title">
+                        Crie sua <em>conta.</em>
+                    </h1>
 
-            <label for="senha">Senha</label>
-            <input
-                type="password"
-                id="senha"
-                name="senha"
-                required
-            >
+                    <p class="auth-subtitle">
+                        Faça seu cadastro para ter acesso à sua experiência no Elysee Studio.
+                    </p>
 
-            <label for="confirmar_senha">Confirmar senha</label>
-            <input
-                type="password"
-                id="confirmar_senha"
-                name="confirmar_senha"
-                required
-            >
+                </header>
 
-            <button type="submit">Criar conta</button>
+                <div class="auth-card">
 
-        </form>
+                    <?php if ($erro !== ''): ?>
 
-    </main>
+                        <p class="auth-message auth-error">
+                            <?= htmlspecialchars($erro) ?>
+                        </p>
+
+                    <?php endif; ?>
+
+                    <?php if ($sucesso !== ''): ?>
+
+                        <p class="auth-message auth-success">
+                            <?= htmlspecialchars($sucesso) ?>
+                        </p>
+
+                    <?php endif; ?>
+
+                    <form method="POST" class="auth-form">
+
+                        <div class="auth-field">
+
+                            <label for="nome">
+                                Nome
+                            </label>
+
+                            <input
+                                type="text"
+                                id="nome"
+                                name="nome"
+                                placeholder="Seu nome completo"
+                                autocomplete="name"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="auth-field">
+
+                            <label for="email">
+                                E-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="seuemail@email.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="auth-field">
+
+                            <label for="telefone">
+                                Telefone
+                            </label>
+
+                            <input
+                                type="tel"
+                                id="telefone"
+                                name="telefone"
+                                placeholder="(00) 00000-0000"
+                                autocomplete="tel"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="auth-field">
+
+                            <label for="senha">
+                                Senha
+                            </label>
+
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Mínimo de 6 caracteres"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="auth-field">
+
+                            <label for="confirmar_senha">
+                                Confirmar senha
+                            </label>
+
+                            <input
+                                type="password"
+                                id="confirmar_senha"
+                                name="confirmar_senha"
+                                placeholder="Digite sua senha novamente"
+                                autocomplete="new-password"
+                                required
+                            >
+
+                        </div>
+
+                        <button type="submit" class="auth-button">
+                            Criar conta
+                        </button>
+
+                    </form>
+
+                    <p class="auth-footer">
+                        Já possui uma conta?
+                        <a href="login.php">Entrar</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <?php
+        $footerFile = __DIR__ . '/includes/footer.php';
+
+        if (is_file($footerFile)) {
+            require $footerFile;
+        }
+        ?>
+
+    </body>
 
 </body>
 

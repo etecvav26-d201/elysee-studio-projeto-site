@@ -95,54 +95,122 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <title>Login | Elysee Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/navbar.css">
+    <link rel="stylesheet" href="assets/css/footer.css">
+    <link rel="stylesheet" href="assets/css/auth.css">
+    <script src="assets/js/navbar.js" defer></script>
+    <link rel="icon" type="image/png" href="assets/img/icon.png">
 </head>
 
 <body>
 
-    <main>
+    <body class="auth-page">
 
-        <h1>Entrar</h1>
+        <?php
+        $navbarFile = __DIR__ . '/includes/navbar.php';
 
-        <?php if ($erro !== ''): ?>
+        if (is_file($navbarFile)) {
+            require $navbarFile;
+        }
+        ?>
 
-            <p><?= htmlspecialchars($erro) ?></p>
+        <main class="auth-main">
 
-        <?php endif; ?>
+            <div class="auth-container">
 
-        <form method="POST">
+                <header class="auth-header">
 
-            <label for="email">E-mail</label>
+                    <p class="eyebrow">
+                        Elysee Studio
+                    </p>
 
-            <input
-                type="email"
-                id="email"
-                name="email"
-                required
-            >
+                    <h1 class="auth-title">
+                        Bem-vindo <em>de volta.</em>
+                    </h1>
 
-            <label for="senha">Senha</label>
+                    <p class="auth-subtitle">
+                        Entre na sua conta para continuar sua experiência no Elysee Studio.
+                    </p>
 
-            <input
-                type="password"
-                id="senha"
-                name="senha"
-                required
-            >
+                </header>
 
-            <button type="submit">
-                Entrar
-            </button>
+                <div class="auth-card">
 
-        </form>
+                    <?php if ($erro !== ''): ?>
 
-        <p>
-            Ainda não possui uma conta?
-            <a href="cadastro.php">Criar conta</a>
-        </p>
+                        <p class="auth-message auth-error">
+                            <?= htmlspecialchars($erro) ?>
+                        </p>
 
-    </main>
+                    <?php endif; ?>
+
+                    <form method="POST" class="auth-form">
+
+                        <div class="auth-field">
+
+                            <label for="email">
+                                E-mail
+                            </label>
+
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="seuemail@email.com"
+                                autocomplete="email"
+                                required
+                            >
+
+                        </div>
+
+                        <div class="auth-field">
+
+                            <label for="senha">
+                                Senha
+                            </label>
+
+                            <input
+                                type="password"
+                                id="senha"
+                                name="senha"
+                                placeholder="Digite sua senha"
+                                autocomplete="current-password"
+                                required
+                            >
+
+                        </div>
+
+                        <button type="submit" class="auth-button">
+                            Entrar
+                        </button>
+
+                    </form>
+
+                    <p class="auth-footer">
+                        Ainda não possui uma conta?
+                        <a href="cadastro.php">Criar conta</a>
+                    </p>
+
+                </div>
+
+            </div>
+
+        </main>
+
+        <?php
+        $footerFile = __DIR__ . '/includes/footer.php';
+
+        if (is_file($footerFile)) {
+            require $footerFile;
+        }
+        ?>
+
+    </body>
 
 </body>
 
