@@ -14,6 +14,7 @@
             <a href="/elysee/index.php">Início</a>
             <a href="/elysee/index.php#conheca">O Studio</a>
             <a href="/elysee/index.php#portifolio">Portfólio</a>
+            <a href="contato.php">Contato</a>
         </nav>
 
         <a class="navbar-logo" href="/elysee/index.php" aria-label="Elysee Studio — início">
